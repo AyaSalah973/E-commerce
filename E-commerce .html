@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products in Cards</title>
+    <style>
+       
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .search-container {
+            padding: 20px;
+            background-color: #1c1d1e;
+            color: white;
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #0a3eeb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+     
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #f1f4f2;
+            color: rgb(11, 11, 11);
+            padding: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-icon span {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card h1 {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .card h2 {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            color: #007b00;
+            margin: 10px 0;
+        }
+
+        .card button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .card button:hover {
+            background-color: #218838;
+        }
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-sidebar h2 {
+            padding: 20px;
+            background-color: #28a745;
+            color: white;
+            margin: 0;
+            text-align: center;
+        }
+
+        .cart-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item p {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .cart-item button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item button:hover {
+            background-color: #e60000;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for products...">
+        <button onclick="searchProducts()">Search</button>
+        <div class="cart-icon" onclick="toggleCartSidebar()">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </div>
+
+    <div class="container" id="product-container">
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items">
+        </div>
+    </div>
+</body>
+<script src="./day5.js"></script>
+</html>
